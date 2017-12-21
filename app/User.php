@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use App\Role;
+use App\Photo;
 
 class User extends Authenticatable
 {

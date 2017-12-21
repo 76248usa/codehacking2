@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <th>Id</th>
+        <th>Photo</th>
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
@@ -24,7 +25,18 @@
 
       <tr>
         <td>{{$user->id}}</td>
-        <td>{{$user->name}}</td>
+
+        <td>
+          @if ($user->photo)
+            <img height=50 src="http://localhost:8888/codehacking2/public/images/{{$user->photo->file}}">
+          @else
+
+             <img height=50 src="http://placehold.it/400x400">
+            
+          @endif
+        </td>
+
+        <td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a></td>
         <td>{{$user->email}}</td>
         <td>
 
