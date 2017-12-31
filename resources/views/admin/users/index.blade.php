@@ -2,6 +2,18 @@
  
 @section('content')
 
+  @if(Session::has('deleted_user'))
+
+    <h4 class="bg-danger text-center">{{session('deleted_user')}}</h4>
+
+  @endif
+
+  @if(Session::has('updated_user'))
+
+    <h4 class="bg-danger text-center">{{session('updated_user')}}</h4>
+
+  @endif
+
 <h1>Users</h1>
 
 <table class="table table-striped">
