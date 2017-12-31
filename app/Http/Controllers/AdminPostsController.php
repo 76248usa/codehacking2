@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\User;
 use App\Post;
 use App\Photo;
+use App\Category;
 
 
 class AdminPostsController extends Controller
@@ -34,7 +35,10 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+
+        $categories =  Category::pluck('name','id')->all();
+
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -62,6 +66,8 @@ class AdminPostsController extends Controller
         }
 
         $user->posts()->create($input);
+
+
 
         return redirect('admin/posts');
         
